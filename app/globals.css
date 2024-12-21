@@ -2,20 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    @apply bg-gradient bg-cover bg-[50%] bg-repeat h-full;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1 {
+    @apply text-4xl font-bold text-white md:text-5xl lg:text-7xl;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  p {
+    @apply text-base font-medium;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  p,
+  pre {
+    margin: 0;
+  }
+
+  button {
+    @apply w-fit cursor-pointer rounded-lg border-0 bg-purple-951 px-6 py-4 text-lg text-white hover:bg-violet-900;
+  }
+
+  button:focus {
+    @apply outline-dotted outline-1;
+  }
+
+  p {
+    @apply m-0 text-2xl font-bold md:text-3xl;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* glass-morphism */
+  .glass {
+    @apply border border-solid border-[hsla(0,0%,100%,0.2)] bg-gray-951 backdrop-blur-[10px] hover:border hover:border-solid hover:border-white;
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass:hover {
+    @apply bg-gray-950;
+  }
 }
